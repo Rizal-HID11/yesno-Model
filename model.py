@@ -1,6 +1,6 @@
 """
 Run this files to start chat with the models.
-Run with type
+Run this type in Terminal like this.
 'python model.py'
 """
 
@@ -8,7 +8,7 @@ import numpy as np
 import hashlib
 
 def text_to_matrix(text):
-  """Convert text to ASCII value matrix (square matrix)"""
+    """Convert text to ASCII value matrix (square matrix)"""
     ascii_values = [ord(char) for char in text]
     n = int(np.ceil(np.sqrt(len(ascii_values))))
     padded_values = ascii_values + [0] * (n*n - len(ascii_values))
@@ -16,7 +16,7 @@ def text_to_matrix(text):
     return matrix
 
 def math_operations(matrix):
-  """Perform various mathematical operations on matrices"""
+    """Perform various mathematical operations on matrices"""
     results = {}
     flattened = matrix.flatten()
 
@@ -77,20 +77,20 @@ def math_operations(matrix):
     return results
 
 def decision(results):
-  """YES/NO decisions are based on a combination of mathematical operations"""
+    """YES/NO decisions are based on a combination of mathematical operations"""
     decision_score = 0
 
-    # 1. Determinant of even? 
-    if results['det'] % 2 == 0: 
-        decision_score += 1 
+    # 1. Determinant of even?
+    if results['det'] % 2 == 0:
+        decision_score += 1
 
-    # 2. Even trace? 
-    if results['trace'] % 2 == 0: 
-        decision_score += 1 
+    # 2. Even trace?
+    if results['trace'] % 2 == 0:
+        decision_score += 1
 
-    # 3. Even sum eigenvalues? 
-    if results['eigen_sum'] % 2 == 0: 
-        decision_score += 1 
+    # 3. Even sum eigenvalues?
+    if results['eigen_sum'] % 2 == 0:
+        decision_score += 1
 
     # 4. Dot product even?
     if results['dot'] % 2 == 0:
